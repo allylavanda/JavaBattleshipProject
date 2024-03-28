@@ -20,13 +20,14 @@ public class Main extends Application {
         launch(args);
     }
     public void start(Stage s){
-        s.setTitle("Battleship Game");
+        s.setTitle("Battleship Game"); // set title
         // Create Logo Image
         Image logo = new Image("logo.png");
         ImageView logoView = new ImageView(logo);
         logoView.setFitWidth(400);
         logoView.setFitHeight(200);
 
+        // create pve and pvp options
         RadioButton pve = new RadioButton("PvE");
         RadioButton pvp = new RadioButton("PvP");
         ToggleGroup tg = new ToggleGroup();
@@ -37,6 +38,7 @@ public class Main extends Application {
         pvp.setPadding(new Insets(5));
         pve.setPadding(new Insets(5));
 
+        // create username and password fields
         Text text1 = new Text("Username:");
         TextField tf = new TextField();
         tf.setMaxSize(200, 0);
@@ -44,12 +46,14 @@ public class Main extends Application {
         PasswordField pf = new PasswordField();
         pf.setMaxSize(200,0);
 
+        // create submit and forgot buttons
         Button submit = new Button("Submit");
         Button forgot = new Button("Forgot?");
         submit.setPadding(new Insets(5));
         forgot.setPadding(new Insets(5));
         GridPane buttonGrid = new GridPane();
 
+        // Add submit and forgot to grid, and set spacing between both. Align to center
         buttonGrid.add(submit, 0, 0);
         buttonGrid.add(forgot, 1, 0);
         buttonGrid.setPadding(new Insets(10));
@@ -58,12 +62,14 @@ public class Main extends Application {
         buttonGrid.setAlignment(Pos.CENTER);
 
         Button leader = new Button("Leaderboards");
-    
+        
+        // add to vbox to align vertically
         VBox vb = new VBox(logoView,mode,text1,tf,text2,pf,buttonGrid, leader);
         vb.setAlignment(Pos.TOP_CENTER);
         vb.setStyle("-fx-background-color: #8F8C8C;");
         vb.setPadding(new Insets(100));
 
+        // add to scene and display
         Scene sc = new Scene(vb, 800,800);
         s.setScene(sc);
         s.show();
