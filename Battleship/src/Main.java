@@ -4,9 +4,12 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
+import javafx.scene.control.RadioButton;
 import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
 import javafx.scene.image.Image;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
@@ -23,6 +26,16 @@ public class Main extends Application {
         ImageView logoView = new ImageView(logo);
         logoView.setFitWidth(400);
         logoView.setFitHeight(200);
+
+        RadioButton pve = new RadioButton("PvE");
+        RadioButton pvp = new RadioButton("PvP");
+        ToggleGroup tg = new ToggleGroup();
+        pve.setToggleGroup(tg);
+        pvp.setToggleGroup(tg);
+        HBox mode = new HBox(pve,pvp);
+        mode.setAlignment(Pos.CENTER);
+        pvp.setPadding(new Insets(5));
+        pve.setPadding(new Insets(5));
 
         Text text1 = new Text("Username:");
         TextField tf = new TextField();
@@ -43,13 +56,13 @@ public class Main extends Application {
         buttonGrid.setVgap(5);
         buttonGrid.setHgap(5);
         buttonGrid.setAlignment(Pos.CENTER);
-    
 
-        VBox vb = new VBox(logoView, text1,tf,text2,pf,buttonGrid);
+        Button leader = new Button("Leaderboards");
+    
+        VBox vb = new VBox(logoView,mode,text1,tf,text2,pf,buttonGrid, leader);
         vb.setAlignment(Pos.TOP_CENTER);
         vb.setStyle("-fx-background-color: #8F8C8C;");
         vb.setPadding(new Insets(100));
-
 
         Scene sc = new Scene(vb, 800,800);
         s.setScene(sc);
