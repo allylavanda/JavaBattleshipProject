@@ -38,9 +38,11 @@ public class LoginMenu extends Stage{
 
         // create username and password fields
         Text text1 = new Text("Username:");
+        text1.getStyleClass().add("login");
         TextField tf = new TextField();
         tf.setMaxSize(200, 0);
         Text text2 = new Text("Password:");
+        text2.getStyleClass().add("login");
         PasswordField pf = new PasswordField();
         pf.setMaxSize(200,0);
 

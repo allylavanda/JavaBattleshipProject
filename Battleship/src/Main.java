@@ -11,6 +11,6 @@ public class Main extends Application {
         LoginMenu lm = new LoginMenu();
         lm.show();
         Intermission inter = new Intermission();
-        inter.show();
+       // inter.show();
     }
 }
