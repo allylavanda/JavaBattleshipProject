@@ -1,0 +1,23 @@
+.root {
+    -fx-background-color: "#8F8C8C";
+}
+.forfeit-button {
+    -fx-background-color: "red";
+}
+.forfeit-button:pressed {
+    -fx-background-color: "DarkRed"
+}
+.start-turn-button {
+    -fx-background-color: "green";
+}
+.start-turn-button:pressed {
+    -fx-background-color: "DarkGreen"
+}
+.title {
+    -fx-font-size: 50pt;
+    -fx-font-weight: bold;
+}
+.waiting {
+    -fx-font-size: 35pt;
+    -fx-font-weight: bold;
+}

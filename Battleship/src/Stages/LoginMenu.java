@@ -64,11 +64,11 @@ public class LoginMenu extends Stage{
         // add to vbox to align vertically
         VBox vb = new VBox(logoView,mode,text1,tf,text2,pf,buttonGrid, leader);
         vb.setAlignment(Pos.TOP_CENTER);
-        vb.setStyle("-fx-background-color: #8F8C8C;");
         vb.setPadding(new Insets(100));
 
         // add to scene and display
         Scene sc = new Scene(vb, 800,800);
+        sc.getStylesheets().add("Framework.css");
         this.setScene(sc);
     }
 }
