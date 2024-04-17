@@ -86,6 +86,7 @@ public class LayoutShips extends Stage{
         vb.setAlignment(Pos.CENTER);
         setBackgroundColor(vb);
         Scene sc = new Scene(vb,width,height);
+        sc.getStylesheets().add("BattleshipGrid.css");
         this.setScene(sc);
     }
     private void setBackgroundColor(VBox vb){
