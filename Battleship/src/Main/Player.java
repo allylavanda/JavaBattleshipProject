@@ -27,12 +27,6 @@ public class Player {
     public void setShipTwoLoc(Double x, Double y){ // add ship two location to array
         this.shipTwo = new Double[] {x,y};
     }
-    public Double[] getShipOneLoc(){ // return ship one location
-        return this.shipOne;
-    }
-    public Double[] getShipTwoLoc(){ // return ship two location
-        return this.shipTwo;
-    }
     public void setPfpImage(int playerNumber){ // set pfp for player
         if(playerNumber == 1){
             pfp = new Image("player1.png");
@@ -46,5 +40,11 @@ public class Player {
     }
     public Color getColor(){ // return color enum
         return color;
+    }
+    public Double[] getShipOneLoc(){ // return ship one location
+        return this.shipOne;
+    }
+    public Double[] getShipTwoLoc(){ // return ship two location
+        return this.shipTwo;
     }
 }
