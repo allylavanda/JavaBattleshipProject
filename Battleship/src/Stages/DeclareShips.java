@@ -1,7 +1,10 @@
 package Stages;
 
+import Main.Player;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
@@ -11,7 +14,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class DeclareShips extends Stage{
-    public DeclareShips(){
+    public DeclareShips(Player p){
         this.setTitle("Declare Ship Locations");
 
         // 2x1 Ship
@@ -37,6 +40,8 @@ public class DeclareShips extends Stage{
         ToggleGroup tg = new ToggleGroup();
         rb1.setToggleGroup(tg);
         rb2.setToggleGroup(tg);
+        Label status = new Label();
+        Button complete = new Button("Complete Placement");
 
         VBox vb1 = new VBox(rb1,rb2);
         vb1.setSpacing(20);
@@ -61,13 +66,14 @@ public class DeclareShips extends Stage{
             r.setHeight(2.5);
         }
 
-        VBox root = new VBox(vb1, gridBox);
+        VBox root = new VBox(vb1, gridBox,status,complete);
         root.setAlignment(Pos.CENTER);
-        root.setSpacing(150);
+        root.setSpacing(100);
 
         Scene sc = new Scene(root,800, 800);
         sc.getStylesheets().add("BattleshipGrid.css");
 
+        // Event Handlers
         grid.setOnMouseMoved(event -> {
             //get mouse POS
             double x = event.getX();
@@ -88,7 +94,7 @@ public class DeclareShips extends Stage{
             x *= 50;
             y *= 50;
 
-            if(rb1.isSelected()){
+            if(rb1.isSelected()){ // move ship one on hover
                 if(grid.getChildren().contains(shipOne) == false){
                     grid.getChildren().remove(shipTwo);
                     grid.getChildren().add(shipOne);
@@ -96,7 +102,7 @@ public class DeclareShips extends Stage{
                 shipOne.setX(x);
                 shipOne.setY(y);
             }
-            if(rb2.isSelected()){
+            if(rb2.isSelected()){ // move ship two on hover
                 if(grid.getChildren().contains(shipTwo) == false){
                     grid.getChildren().remove(shipOne);
                     grid.getChildren().add(shipTwo);
@@ -104,7 +110,6 @@ public class DeclareShips extends Stage{
                 shipTwo.setX(x);
                 shipTwo.setY(y);
             }
-
         });
         grid.setOnMouseClicked(event -> {
             double x = event.getX();
@@ -117,8 +122,19 @@ public class DeclareShips extends Stage{
             y = Math.floor(y);
 
             if(rb1.isSelected()){
-                
+                p.setShipOneLoc(++x, y);
+                status.setText("Ship One Has Been Placed!");
+                // Double[] test = p.getShipOneLoc(); DEBUG IF PLAYER CLASS RECIEVES DATA
+                // System.out.println(test[0]);
             }
+            if(rb2.isSelected()){
+                p.setShipTwoLoc(2+x, y);
+                status.setText("Ship Two Has Been Placed!");
+            }
+            System.out.println(x);
+        });
+        complete.setOnAction(event -> {
+            this.close();
         });
 
         this.setScene(sc);

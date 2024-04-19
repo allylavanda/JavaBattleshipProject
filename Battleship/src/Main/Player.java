@@ -4,7 +4,8 @@ import javafx.scene.paint.Color;
 public class Player {
     private Color color;
     private Image pfp;
-    
+    private Double[] shipOne;
+    private Double[] shipTwo;
     public Player(){
 
     }
@@ -20,8 +21,17 @@ public class Player {
                 color = Color.YELLOW;
         }
     }
-    public Color getColor(){
-        return color;
+    public void setShipOneLoc(Double x, Double y){
+        this.shipOne = new Double[] {x,y};
+    }
+    public void setShipTwoLoc(Double x, Double y){
+        this.shipTwo = new Double[] {x,y};
+    }
+    public Double[] getShipOneLoc(){
+        return this.shipOne;
+    }
+    public Double[] getShipTwoLoc(){
+        return this.shipTwo;
     }
     public void setPfpImage(int playerNumber){
         if(playerNumber == 1){
@@ -33,5 +43,8 @@ public class Player {
     }
     public Image getImage(){
         return pfp;
+    }
+    public Color getColor(){
+        return color;
     }
 }

@@ -11,6 +11,7 @@ public class Main extends Application {
         launch(args);
     }
     public void start(Stage s){
+        DeclareShips ds;
         Player p1 = new Player();
         Player p2 = new Player();
         LoginMenu lm = new LoginMenu();
@@ -21,7 +22,10 @@ public class Main extends Application {
         //ps.show();
         //LayoutShips ls = new LayoutShips();
         //ls.show();
-        DeclareShips ds = new DeclareShips();
-        ds.show();
+        ds = new DeclareShips(p1);
+        ds.showAndWait();
+        ds = new DeclareShips(p2);
+        ds.showAndWait();
+
     }
 }
