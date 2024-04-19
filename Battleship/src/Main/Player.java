@@ -4,6 +4,7 @@ import javafx.scene.paint.Color;
 public class Player {
     private Color color;
     private Image pfp;
+    
     public Player(){
 
     }

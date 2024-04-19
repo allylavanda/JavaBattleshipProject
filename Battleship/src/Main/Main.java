@@ -1,8 +1,8 @@
 package Main;
 import Stages.DeclareShips;
-import Stages.LayoutShips;
+//import Stages.LayoutShips;
 import Stages.LoginMenu;
-import Stages.PlayerSelectMenu;
+//import Stages.PlayerSelectMenu;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -14,7 +14,7 @@ public class Main extends Application {
         Player p1 = new Player();
         Player p2 = new Player();
         LoginMenu lm = new LoginMenu();
-        lm.show();
+        //lm.show();
         //Intermission inter = new Intermission(2);
         //inter.show();
         //PlayerSelectMenu ps = new PlayerSelectMenu(p1,p2);

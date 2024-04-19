@@ -14,17 +14,25 @@ public class DeclareShips extends Stage{
     public DeclareShips(){
         this.setTitle("Declare Ship Locations");
 
-        Rectangle rec = new Rectangle();
-        rec.setX(0);
-        rec.setY(0);
-        rec.setWidth(50);
-        rec.setHeight(50);
+        // 2x1 Ship
+        Rectangle shipOne = new Rectangle();
+        shipOne.setX(0);
+        shipOne.setY(0);
+        shipOne.setWidth(100);
+        shipOne.setHeight(50);
 
-        
+        // 3x1 Ship
+        Rectangle shipTwo = new Rectangle();
+        shipTwo.setX(0);
+        shipTwo.setY(0);
+        shipTwo.setWidth(150);
+        shipTwo.setHeight(50);
+
         Pane grid = new Pane();
         HBox gridBox = new HBox(grid);
         gridBox.setAlignment(Pos.CENTER);
         RadioButton rb1 = new RadioButton("2x1 Ship");
+        rb1.setSelected(true);
         RadioButton rb2 = new RadioButton("3x1 Ship");
         ToggleGroup tg = new ToggleGroup();
         rb1.setToggleGroup(tg);
@@ -34,9 +42,7 @@ public class DeclareShips extends Stage{
         vb1.setSpacing(20);
         vb1.setAlignment(Pos.CENTER);
         
-        grid.getChildren().add(rec);
-        
-
+        // Create Grid Horizontal
         for (int i = 0; i <= 250; i+= 50){
             Rectangle r = new Rectangle();
             grid.getChildren().add(r);
@@ -45,6 +51,7 @@ public class DeclareShips extends Stage{
             r.setWidth(2.5);
             r.setHeight(250);
         }
+        // Create Grid vertical
         for (int i = 0; i <= 250; i+= 50){
             Rectangle r = new Rectangle();
             grid.getChildren().add(r);
@@ -81,8 +88,22 @@ public class DeclareShips extends Stage{
             x *= 50;
             y *= 50;
 
-            rec.setX(x);
-            rec.setY(y);
+            if(rb1.isSelected()){
+                if(grid.getChildren().contains(shipOne) == false){
+                    grid.getChildren().remove(shipTwo);
+                    grid.getChildren().add(shipOne);
+                }
+                shipOne.setX(x);
+                shipOne.setY(y);
+            }
+            if(rb2.isSelected()){
+                if(grid.getChildren().contains(shipTwo) == false){
+                    grid.getChildren().remove(shipOne);
+                    grid.getChildren().add(shipTwo);
+                }
+                shipTwo.setX(x);
+                shipTwo.setY(y);
+            }
 
         });
         grid.setOnMouseClicked(event -> {
@@ -101,6 +122,5 @@ public class DeclareShips extends Stage{
         });
 
         this.setScene(sc);
-        
     }
 }
