@@ -31,22 +31,28 @@ public class DeclareShips extends Stage{
         shipTwo.setWidth(150);
         shipTwo.setHeight(50);
 
+        // Create pane to make the grid in
         Pane grid = new Pane();
         HBox gridBox = new HBox(grid);
         gridBox.setAlignment(Pos.CENTER);
+
+        // Buttons to choose which ship to place
         RadioButton rb1 = new RadioButton("2x1 Ship");
         rb1.setSelected(true);
         RadioButton rb2 = new RadioButton("3x1 Ship");
         ToggleGroup tg = new ToggleGroup();
         rb1.setToggleGroup(tg);
         rb2.setToggleGroup(tg);
-        Label status = new Label();
-        Button complete = new Button("Complete Placement");
 
+        // Radio button VBOX
         VBox vb1 = new VBox(rb1,rb2);
         vb1.setSpacing(20);
         vb1.setAlignment(Pos.CENTER);
-        
+
+        // Status label to declare if ship has been placed, and button to move to next player or end scene
+        Label status = new Label();
+        Button complete = new Button("Complete Placement");
+
         // Create Grid Horizontal
         for (int i = 0; i <= 250; i+= 50){
             Rectangle r = new Rectangle();
@@ -56,7 +62,7 @@ public class DeclareShips extends Stage{
             r.setWidth(2.5);
             r.setHeight(250);
         }
-        // Create Grid vertical
+        // Create Grid Vertical
         for (int i = 0; i <= 250; i+= 50){
             Rectangle r = new Rectangle();
             grid.getChildren().add(r);
@@ -84,6 +90,7 @@ public class DeclareShips extends Stage{
 
             x = Math.floor(x);
             y = Math.floor(y);
+            // FOR DEBUGGING PURPOSES
             System.out.print("Array Index: ");
             System.out.print("[");
             System.out.print(x);
