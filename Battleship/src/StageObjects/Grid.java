@@ -41,7 +41,7 @@ public class Grid extends HBox {
         return grid;
     }
     public void setHit(Double x, Double y){
-
+        
     }
     public void setMiss(Double x, Double y){
 
