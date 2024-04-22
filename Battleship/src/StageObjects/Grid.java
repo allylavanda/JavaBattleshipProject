@@ -1,9 +1,14 @@
 package StageObjects;
+import javafx.geometry.Pos;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
-public class Grid {
-    public void create(Pane grid){
+public class Grid extends HBox {
+    private Pane grid;
+    public Grid(){
+    }
+    private void createGridBox(Pane grid){
         // Create Grid Horizontal
         for (int i = 0; i <= 250; i+= 50){
             Rectangle r = new Rectangle();
@@ -22,5 +27,14 @@ public class Grid {
             r.setWidth(250);
             r.setHeight(2.5);
         }
+    }
+    public void generate(){
+        grid = new Pane();
+        this.getChildren().add(grid);
+        this.setAlignment(Pos.CENTER);
+        createGridBox(grid);
+    }
+    public Pane getPane(){
+        return grid;
     }
 }

@@ -9,7 +9,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
@@ -30,12 +29,9 @@ public class DeclareShips extends Stage{
         shipTwo.setX(0);
         shipTwo.setY(0);
         
-        // Create grid
-        Pane grid = new Pane();
-        HBox gridBox = new HBox(grid);
-        gridBox.setAlignment(Pos.CENTER);
-        Grid bsGrid = new Grid();
-        bsGrid.create(grid);
+        // Create Grid
+        Grid gridBox = new Grid();
+        gridBox.generate();
 
         // Buttons to choose which ship to place and check box for rotate
         RadioButton rb1 = new RadioButton("2x1 Ship");
@@ -54,26 +50,6 @@ public class DeclareShips extends Stage{
         // Status label to declare if ship has been placed, and button to move to next player or end scene
         Label status = new Label();
         Button complete = new Button("Complete Placement");
-        /**
-        // Create Grid Horizontal
-        for (int i = 0; i <= 250; i+= 50){
-            Rectangle r = new Rectangle();
-            grid.getChildren().add(r);
-            r.setX(i);
-            r.setY(0);
-            r.setWidth(2.5);
-            r.setHeight(250);
-        }
-        // Create Grid Vertical
-        for (int i = 0; i <= 250; i+= 50){
-            Rectangle r = new Rectangle();
-            grid.getChildren().add(r);
-            r.setX(0);
-            r.setY(i);
-            r.setWidth(250);
-            r.setHeight(2.5);
-        }
-        **/
         VBox root = new VBox(vb1, gridBox,status,complete);
         root.setAlignment(Pos.CENTER);
         root.setSpacing(100);
@@ -89,6 +65,7 @@ public class DeclareShips extends Stage{
         } **/
 
         // Event Handlers
+        Pane grid = gridBox.getPane();
         grid.setOnMouseMoved(event -> {
             //get mouse POS
             double x = event.getX();
