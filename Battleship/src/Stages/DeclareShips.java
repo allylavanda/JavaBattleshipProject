@@ -101,7 +101,7 @@ public class DeclareShips extends Stage{
             x *= 50;
             y *= 50;
 
-            if(rb1.isSelected()){ // move ship one on hover
+            if(rb1.isSelected() && x < 200 && y < 250){ // move ship one on hover
                 if(grid.getChildren().contains(shipOne) == false){
                     grid.getChildren().remove(shipTwo);
                     grid.getChildren().add(shipOne);
@@ -109,7 +109,7 @@ public class DeclareShips extends Stage{
                 shipOne.setX(x);
                 shipOne.setY(y);
             }
-            if(rb2.isSelected()){ // move ship two on hover
+            if(rb2.isSelected() && x < 150 && y < 250){ // move ship two on hover
                 if(grid.getChildren().contains(shipTwo) == false){
                     grid.getChildren().remove(shipOne);
                     grid.getChildren().add(shipTwo);
