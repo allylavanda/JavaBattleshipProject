@@ -1,3 +1,12 @@
-.button {
-
+.red-player{
+    -fx-background-color: red;
+}
+.blue-player{
+    -fx-background-color: blue;
+}
+.green-player{
+    -fx-background-color: green;
+}
+.yellow-player{
+    -fx-background-color: yellow;
 }
