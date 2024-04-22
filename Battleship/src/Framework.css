@@ -8,7 +8,7 @@
     -fx-font-size: 20pt;
 }
 .forfeit-button:pressed {
-    -fx-background-color: "DarkRed"
+    -fx-background-color: "DarkRed";
 }
 .start-turn-button {
     -fx-background-color: "green";
@@ -17,7 +17,7 @@
     -fx-font-size: 20pt;
 }
 .start-turn-button:pressed {
-    -fx-background-color: "DarkGreen"
+    -fx-background-color: "DarkGreen";
 }
 .title {
     -fx-font-size: 50pt;

@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 .red-player{
     -fx-background-color: red;
 }
@@ -9,4 +10,8 @@
 }
 .yellow-player{
     -fx-background-color: yellow;
+=======
+.root {
+    -fx-background-color: "#8F8C8C";
+>>>>>>> d193f8b9450911adb1a59b227a36ce340e2b2ead
 }
