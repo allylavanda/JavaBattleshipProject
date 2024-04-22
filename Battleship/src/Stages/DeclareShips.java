@@ -141,7 +141,7 @@ public class DeclareShips extends Stage{
             if(rb1.isSelected()){
                 p.setShipOneLoc(x, y, ++x, y);
                 status.setText("Ship One Has Been Placed!");
-                // Double[] test = p.getShipOneLoc(); DEBUG IF PLAYER CLASS RECIEVES DATA
+                // Double[] test = p.getShipOneLoc(); DEBUG IF PLAYER CLASS RECEIVES DATA
                 // System.out.println(test[0]);
             }
             if(rb2.isSelected()){
