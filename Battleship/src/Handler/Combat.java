@@ -14,6 +14,5 @@ public class Combat {
         else {
             p.getBoard().setMiss(x, y);
         }
-
     }
 }
