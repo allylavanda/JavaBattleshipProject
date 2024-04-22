@@ -4,12 +4,14 @@ import Main.Player;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.RadioButton;
 import javafx.scene.control.ToggleGroup;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.Color;
 import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
@@ -21,31 +23,29 @@ public class DeclareShips extends Stage{
         Rectangle shipOne = new Rectangle();
         shipOne.setX(0);
         shipOne.setY(0);
-        shipOne.setWidth(100);
-        shipOne.setHeight(50);
 
         // 3x1 Ship
         Rectangle shipTwo = new Rectangle();
         shipTwo.setX(0);
         shipTwo.setY(0);
-        shipTwo.setWidth(150);
-        shipTwo.setHeight(50);
+        
 
         // Create pane to make the grid in
         Pane grid = new Pane();
         HBox gridBox = new HBox(grid);
         gridBox.setAlignment(Pos.CENTER);
 
-        // Buttons to choose which ship to place
+        // Buttons to choose which ship to place and check box for rotate
         RadioButton rb1 = new RadioButton("2x1 Ship");
         rb1.setSelected(true);
         RadioButton rb2 = new RadioButton("3x1 Ship");
+        CheckBox cb1 = new CheckBox("Rotate Ship?");
         ToggleGroup tg = new ToggleGroup();
         rb1.setToggleGroup(tg);
         rb2.setToggleGroup(tg);
 
         // Radio button VBOX
-        VBox vb1 = new VBox(rb1,rb2);
+        VBox vb1 = new VBox(rb1,rb2,cb1);
         vb1.setSpacing(20);
         vb1.setAlignment(Pos.CENTER);
 
@@ -79,6 +79,13 @@ public class DeclareShips extends Stage{
         Scene sc = new Scene(root,800, 800);
         sc.getStylesheets().add("BattleshipGrid.css");
 
+        /**switch(p.getColor()){  THIS WILL BE USED TO CHANGE BACKGROUND TO PLAYER CHOSEN COLOR
+            case Color.RED: root.getStyleClass().add("red-player");
+            case Color.GREEN: root.getStyleClass().add("green-player");
+            case Color.YELLOW: root.getStyleClass().add("yellow-player");
+            case Color.BLUE: root.getStyleClass().add("blue-player");
+        } **/
+
         // Event Handlers
         grid.setOnMouseMoved(event -> {
             //get mouse POS
@@ -106,6 +113,18 @@ public class DeclareShips extends Stage{
                     grid.getChildren().remove(shipTwo);
                     grid.getChildren().add(shipOne);
                 }
+                shipOne.setWidth(100);
+                shipOne.setHeight(50);
+                shipOne.setX(x);
+                shipOne.setY(y);
+            }
+            if(rb1.isSelected() && cb1.isSelected() && x < 250 && y < 200){ // move rotated ship one on hover 
+                if(grid.getChildren().contains(shipOne) == false){
+                    grid.getChildren().remove(shipTwo);
+                    grid.getChildren().add(shipOne);
+                }
+                shipOne.setWidth(50);
+                shipOne.setHeight(100);
                 shipOne.setX(x);
                 shipOne.setY(y);
             }
@@ -114,9 +133,22 @@ public class DeclareShips extends Stage{
                     grid.getChildren().remove(shipOne);
                     grid.getChildren().add(shipTwo);
                 }
+                shipTwo.setWidth(150);
+                shipTwo.setHeight(50);
                 shipTwo.setX(x);
                 shipTwo.setY(y);
             }
+            if(rb2.isSelected() && cb1.isSelected() && x < 250 && y < 150){ // move rotated ship two on hover
+                if(grid.getChildren().contains(shipTwo) == false){
+                    grid.getChildren().remove(shipOne);
+                    grid.getChildren().add(shipTwo);
+                }
+                shipTwo.setHeight(150);
+                shipTwo.setWidth(50);
+                shipTwo.setX(x);
+                shipTwo.setY(y);
+            }
+
         });
         grid.setOnMouseClicked(event -> {
             double x = event.getX();
@@ -143,7 +175,6 @@ public class DeclareShips extends Stage{
         complete.setOnAction(event -> {
             this.close();
         });
-
         this.setScene(sc);
     }
 }
