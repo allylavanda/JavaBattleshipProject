@@ -1,11 +1,14 @@
 package StageObjects;
 import javafx.geometry.Pos;
+import javafx.scene.image.Image;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Pane;
 import javafx.scene.shape.Rectangle;
 
 public class Grid extends HBox {
     private Pane grid;
+    private final Image hit = new Image("hit.png");
+    private final Image miss = new Image("miss.png");
     public Grid(){
     }
     private void createGridBox(Pane grid){
@@ -36,5 +39,11 @@ public class Grid extends HBox {
     }
     public Pane getPane(){
         return grid;
+    }
+    public void setHit(Double x, Double y){
+
+    }
+    public void setMiss(Double x, Double y){
+
     }
 }
