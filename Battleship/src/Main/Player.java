@@ -1,4 +1,5 @@
 package Main;
+import StageObjects.Grid;
 import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 public class Player {
@@ -6,6 +7,7 @@ public class Player {
     private Image pfp;
     private Double[] shipOne;
     private Double[] shipTwo;
+    private Grid board;
     public Player(){
     }
     public void setColor(String inputColor){ // set player color to use in backgrounds, uses javafx COLOR enums
@@ -45,5 +47,8 @@ public class Player {
     }
     public Double[] getShipTwoLoc(){ // return ship two location
         return this.shipTwo;
+    }
+    public Grid getBoard(){ // Get player's board
+        return board;
     }
 }
