@@ -1,6 +1,7 @@
 package Stages;
 
 import Main.Player;
+import StageObjects.Grid;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -29,11 +30,12 @@ public class DeclareShips extends Stage{
         shipTwo.setX(0);
         shipTwo.setY(0);
         
-
-        // Create pane to make the grid in
+        // Create grid
         Pane grid = new Pane();
         HBox gridBox = new HBox(grid);
         gridBox.setAlignment(Pos.CENTER);
+        Grid bsGrid = new Grid();
+        bsGrid.create(grid);
 
         // Buttons to choose which ship to place and check box for rotate
         RadioButton rb1 = new RadioButton("2x1 Ship");
@@ -52,7 +54,7 @@ public class DeclareShips extends Stage{
         // Status label to declare if ship has been placed, and button to move to next player or end scene
         Label status = new Label();
         Button complete = new Button("Complete Placement");
-
+        /**
         // Create Grid Horizontal
         for (int i = 0; i <= 250; i+= 50){
             Rectangle r = new Rectangle();
@@ -71,7 +73,7 @@ public class DeclareShips extends Stage{
             r.setWidth(250);
             r.setHeight(2.5);
         }
-
+        **/
         VBox root = new VBox(vb1, gridBox,status,complete);
         root.setAlignment(Pos.CENTER);
         root.setSpacing(100);
@@ -148,7 +150,6 @@ public class DeclareShips extends Stage{
                 shipTwo.setX(x);
                 shipTwo.setY(y);
             }
-
         });
         grid.setOnMouseClicked(event -> {
             double x = event.getX();
@@ -161,13 +162,13 @@ public class DeclareShips extends Stage{
             y = Math.floor(y);
 
             if(rb1.isSelected()){
-                p.setShipOneLoc(++x, y);
+                p.setShipOneLoc(x, y, ++x, y);
                 status.setText("Ship One Has Been Placed!");
                 // Double[] test = p.getShipOneLoc(); DEBUG IF PLAYER CLASS RECIEVES DATA
                 // System.out.println(test[0]);
             }
             if(rb2.isSelected()){
-                p.setShipTwoLoc(2+x, y);
+                p.setShipTwoLoc(x, y, 2+x, y);
                 status.setText("Ship Two Has Been Placed!");
             }
             System.out.println(x);

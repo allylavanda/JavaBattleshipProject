@@ -7,7 +7,6 @@ public class Player {
     private Double[] shipOne;
     private Double[] shipTwo;
     public Player(){
-
     }
     public void setColor(String inputColor){ // set player color to use in backgrounds, uses javafx COLOR enums
         switch (inputColor) {
@@ -21,11 +20,11 @@ public class Player {
                 color = Color.YELLOW;
         }
     }
-    public void setShipOneLoc(Double x, Double y){ // add ship one location to array
-        this.shipOne = new Double[] {x,y};
+    public void setShipOneLoc(Double x1, Double y1, Double x2, Double y2){ // add ship one location to array
+        this.shipOne = new Double[] {x1,y1,x2,y2};
     }
-    public void setShipTwoLoc(Double x, Double y){ // add ship two location to array
-        this.shipTwo = new Double[] {x,y};
+    public void setShipTwoLoc(Double x1, Double y1, Double x2, Double y2){ // add ship two location to array
+        this.shipTwo = new Double[] {x1,y1,x2,y2};
     }
     public void setPfpImage(int playerNumber){ // set pfp for player
         if(playerNumber == 1){

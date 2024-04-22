@@ -30,11 +30,14 @@ public class PlayerSelectMenu extends Stage {
         Text player1Label = new Text("Player 1");
         player1Label.setStyle("-fx-font-size: 20px;");
 
+
+        // radio buttons
         RadioButton red1 = new RadioButton("Red");
         RadioButton blue1 = new RadioButton("Blue");
         RadioButton green1 = new RadioButton("Green");
         RadioButton yellow1 = new RadioButton("Yellow");
 
+        
         player1ColorGroup = new ToggleGroup();
         red1.setToggleGroup(player1ColorGroup);
         blue1.setToggleGroup(player1ColorGroup);
@@ -74,6 +77,7 @@ public class PlayerSelectMenu extends Stage {
         VBox player1Box = new VBox(player1ColorBox, player1ColorSelection);
         VBox player2Box = new VBox(player2ColorBox, player2ColorSelection);
         VBox.setMargin(beginPlacementButton, new Insets(20, 0, 0, 0));
+
 
         HBox colorSelection = new HBox(50, player1Box, player2Box);
         colorSelection.setAlignment(Pos.CENTER);
