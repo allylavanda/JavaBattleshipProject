@@ -44,11 +44,10 @@ public class Grid extends HBox {
     public Pane getPane(){
         return grid;
     }
-    public ImageView setHit(Double x, Double y){
+    public void setHit(Double x, Double y){
         hitView = new ImageView(hit);
         hitView.setX(x);
         hitView.setY(y);
-        return hitView;
     }
     public void setMiss(Double x, Double y){
         missView = new ImageView(miss);

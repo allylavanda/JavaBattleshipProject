@@ -88,7 +88,7 @@ public class DeclareShips extends Stage{
             y *= 50;
 
             if(rb1.isSelected() && x < 200 && y < 250){ // move ship one on hover
-                if(grid.getChildren().contains(shipOne) == false){
+                if(!grid.getChildren().contains(shipOne)){
                     grid.getChildren().remove(shipTwo);
                     grid.getChildren().add(shipOne);
                 }
@@ -98,7 +98,7 @@ public class DeclareShips extends Stage{
                 shipOne.setY(y);
             }
             if(rb1.isSelected() && cb1.isSelected() && x < 250 && y < 200){ // move rotated ship one on hover 
-                if(grid.getChildren().contains(shipOne) == false){
+                if(!grid.getChildren().contains(shipOne)){
                     grid.getChildren().remove(shipTwo);
                     grid.getChildren().add(shipOne);
                 }
@@ -108,7 +108,7 @@ public class DeclareShips extends Stage{
                 shipOne.setY(y);
             }
             if(rb2.isSelected() && x < 150 && y < 250){ // move ship two on hover
-                if(grid.getChildren().contains(shipTwo) == false){
+                if(!grid.getChildren().contains(shipTwo)){
                     grid.getChildren().remove(shipOne);
                     grid.getChildren().add(shipTwo);
                 }
@@ -118,7 +118,7 @@ public class DeclareShips extends Stage{
                 shipTwo.setY(y);
             }
             if(rb2.isSelected() && cb1.isSelected() && x < 250 && y < 150){ // move rotated ship two on hover
-                if(grid.getChildren().contains(shipTwo) == false){
+                if(!grid.getChildren().contains(shipTwo)){
                     grid.getChildren().remove(shipOne);
                     grid.getChildren().add(shipTwo);
                 }

@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 public class Player {
     private Color color;
+    private boolean isTurn;
     private Image pfp;
     private Double[] shipOne;
     private Double[] shipTwo;
@@ -35,6 +36,12 @@ public class Player {
         if(playerNumber == 2){
             pfp = new Image("player2.png");
         }
+    }
+    public void endTurn(){
+        this.isTurn = false;
+    }
+    public boolean getTurn(){
+        return this.isTurn;
     }
     public Image getImage(){ // return pfp for player
         return pfp;
