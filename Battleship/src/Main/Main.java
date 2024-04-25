@@ -1,5 +1,6 @@
 package Main;
 import Stages.DeclareShips;
+import Stages.PlayerSelectMenu;
 //import Stages.LoginMenu;
 //import Stages.PlayerSelectMenu;
 import javafx.application.Application;
@@ -17,12 +18,12 @@ public class Main extends Application {
         //lm.show();
         //Intermission inter = new Intermission(2);
         //inter.show();
-        //PlayerSelectMenu ps = new PlayerSelectMenu(p1,p2);
-        //ps.show();
-        ds = new DeclareShips(p1);
-        ds.showAndWait();
-        ds = new DeclareShips(p2);
-        ds.showAndWait();
+        PlayerSelectMenu ps = new PlayerSelectMenu(p1,p2);
+        ps.show();
+        //ds = new DeclareShips(p1);
+        //ds.showAndWait();
+        //ds = new DeclareShips(p2);
+        //ds.showAndWait();
 
     }
 }
