@@ -8,5 +8,10 @@ username varchar(25),
 password varchar(25)
 );
 
+select * from logins;
 
-
+use leaderboard;
+create table scores(
+userID int NOT NULL primary key,
+wins int,
+losses int);
