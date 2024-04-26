@@ -10,6 +10,8 @@ public class Player {
     private Double[] shipTwo;
     private Grid board;
     public Player(){
+        this.board = new Grid();
+        board.generate();
     }
     public void setColor(String inputColor){ // set player color to use in backgrounds, uses javafx COLOR enums
         switch (inputColor) {
@@ -37,12 +39,9 @@ public class Player {
             pfp = new Image("player2.png");
         }
     }
-    public void endTurn(){
-        this.isTurn = false;
-    }
-    public boolean getTurn(){
-        return this.isTurn;
-    }
+    public void endTurn(){this.isTurn = false;}
+    public void beginTurn(){this.isTurn = true;}
+    public boolean getTurn(){return this.isTurn;}
     public Image getImage(){ // return pfp for player
         return pfp;
     }

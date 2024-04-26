@@ -1,4 +1,5 @@
 package Main;
+import Stages.Battle;
 import Stages.DeclareShips;
 import Stages.PlayerSelectMenu;
 //import Stages.LoginMenu;
@@ -24,5 +25,7 @@ public class Main extends Application {
         //ds.showAndWait();
         //ds = new DeclareShips(p2);
         //ds.showAndWait();
+        Battle bt = new Battle(p1,p2);
+        bt.show();
     }
 }
