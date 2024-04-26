@@ -37,6 +37,11 @@ public class Intermission extends Stage{
         b2.setMinWidth(600);
         b2.getStyleClass().add("forfeit-button");
 
+        // event listeners
+        b1.setOnAction(event -> {
+            this.close();
+        });
+
         // root box
         VBox root = new VBox(20,l1,pView,l2,b1,b2);
         root.setAlignment(Pos.CENTER);

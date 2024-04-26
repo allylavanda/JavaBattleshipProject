@@ -55,7 +55,19 @@ public class Battle extends Stage{
             }
         });
         grid.setOnMouseClicked(event ->{
+            double x = event.getX();
+            double y = event.getY();
+            x /= 50;
+            y /= 50;
+            x = Math.floor(x);
+            y = Math.floor(y);
+            x *= 50;
+            y *= 50;
 
+
+        });
+        fire.setOnAction(event ->{
+            this.close();
         });
 
         Scene sc = new Scene(root,width,height);

@@ -1,6 +1,7 @@
 package Main;
 import Stages.Battle;
 import Stages.DeclareShips;
+import Stages.Intermission;
 import Stages.PlayerSelectMenu;
 //import Stages.LoginMenu;
 //import Stages.PlayerSelectMenu;
@@ -13,6 +14,9 @@ public class Main extends Application {
     }
     public void start(Stage s){
         DeclareShips ds;
+        Battle bt;
+        Intermission inter;
+        boolean inCombat = true;
         Player p1 = new Player();
         Player p2 = new Player();
         //LoginMenu lm = new LoginMenu();
@@ -25,7 +29,11 @@ public class Main extends Application {
         //ds.showAndWait();
         //ds = new DeclareShips(p2);
         //ds.showAndWait();
-        Battle bt = new Battle(p1,p2);
-        bt.show();
+        while(inCombat){
+            bt = new Battle(p1,p2);
+            bt.showAndWait();
+            inter = new Intermission(1);
+            inter.showAndWait();
+        }
     }
 }

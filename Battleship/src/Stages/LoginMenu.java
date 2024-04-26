@@ -1,5 +1,6 @@
 package Stages;
 
+import Handler.SQLHandler;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -60,6 +61,15 @@ public class LoginMenu extends Stage{
         buttonGrid.setVgap(5);
         buttonGrid.setHgap(5);
         buttonGrid.setAlignment(Pos.CENTER);
+
+        // Event Handlers
+        submit.setOnAction(event -> {
+            SQLHandler accountManager = new SQLHandler();
+            accountManager.login(tf.getText(),pf.getText());
+            if(accountManager.isVerified()){
+                this.close();
+            }
+        });
 
         Button leader = new Button("Leaderboards");
         
