@@ -16,7 +16,7 @@ public class SQLHandler {
     public void writeToLeaderboard(){
 
     }
-    public void fetchLeaderboard(){
+    public void fetchLeaderboard(){ // THIS IS NOT COMPLETE // UNTESTED
         Connection conn = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
@@ -37,7 +37,7 @@ public class SQLHandler {
             System.out.println(e.getMessage());
         }
     }
-    public void login(String user, String pass){
+    public void login(String user, String pass){ // THIS IS NOT COMPLETE
         Connection conn = null;
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");

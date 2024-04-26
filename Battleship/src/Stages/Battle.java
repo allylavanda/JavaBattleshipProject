@@ -20,7 +20,7 @@ public class Battle extends Stage{
     public Battle(Player p1, Player p2){
         this.setTitle("Battleship - Battle!");
 
-        Rectangle select = new Rectangle();
+        Rectangle select = new Rectangle(); // select cursor
         select.setX(0);
         select.setY(0);
 
@@ -39,7 +39,7 @@ public class Battle extends Stage{
         // Event Listener
         Pane grid = gridTwo.getPane();
         grid.getChildren().add(select);
-        grid.setOnMouseMoved(event -> {
+        grid.setOnMouseMoved(event -> { // move cursor on grid on hover
             double x = event.getX();
             double y = event.getY();
             x /= 50;
@@ -55,7 +55,7 @@ public class Battle extends Stage{
                 select.setY(y);
             }
         });
-        grid.setOnMouseClicked(event ->{
+        grid.setOnMouseClicked(event ->{ // set x and y var when grid is clicked
             double x = event.getX();
             double y = event.getY();
             x /= 50;
@@ -66,24 +66,22 @@ public class Battle extends Stage{
             y *= 50;
             hitX = x;
             hitY = y;
-
-
         });
         fire.setOnAction(event ->{
-            if(p1.getTurn()){
+            if(p1.getTurn()){ // if it is player 1 turn, attack player 2 for x and y
                 Combat cb = new Combat();
                 cb.attack(p2,hitX,hitY);
                 p1.endTurn();
                 p2.beginTurn();
             }
-            if(p2.getTurn()){
+            if(p2.getTurn()){ // if it is player 2 turn, attack player 1 for x and y
                 Combat cb = new Combat();
                 cb.attack(p1,hitX,hitY);
                 p2.endTurn();
                 p1.beginTurn();
             }
             this.close();
-            grid.getChildren().remove(select);
+            grid.getChildren().remove(select); // remove select square from grid
         });
 
         Scene sc = new Scene(root,width,height);

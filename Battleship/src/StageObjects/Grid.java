@@ -48,12 +48,14 @@ public class Grid extends HBox {
         hitView = new ImageView(hit);
         hitView.setX(x);
         hitView.setY(y);
+        grid.getChildren().add(hitView);
         System.out.println("HIT");
     }
     public void setMiss(Double x, Double y){
         missView = new ImageView(miss);
         missView.setX(x);
         missView.setY(y);
+        grid.getChildren().add(missView);
         System.out.println("MISS");
     }
 }
