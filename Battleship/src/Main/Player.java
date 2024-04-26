@@ -5,6 +5,7 @@ import javafx.scene.paint.Color;
 public class Player {
     private Color color;
     private boolean isTurn;
+    private boolean isLoser;
     private Image pfp;
     private Double[] shipOne;
     private Double[] shipTwo;
@@ -39,22 +40,14 @@ public class Player {
             pfp = new Image("player2.png");
         }
     }
-    public void endTurn(){this.isTurn = false;}
-    public void beginTurn(){this.isTurn = true;}
-    public boolean getTurn(){return this.isTurn;}
-    public Image getImage(){ // return pfp for player
-        return pfp;
-    }
-    public Color getColor(){ // return color enum
-        return color;
-    }
-    public Double[] getShipOneLoc(){ // return ship one location
-        return this.shipOne;
-    }
-    public Double[] getShipTwoLoc(){ // return ship two location
-        return this.shipTwo;
-    }
-    public Grid getBoard(){ // Get player's board
-        return board;
-    }
+    public void setLoser(){this.isLoser = true;} // set the loser
+    public void endTurn(){this.isTurn = false;} // end player turn
+    public void beginTurn(){this.isTurn = true;} // begin player turn
+    public boolean getTurn(){return this.isTurn;} // get player turn
+    public Image getImage(){return pfp;}
+    public Color getColor(){return color;}
+    public Double[] getShipOneLoc(){return this.shipOne;} // get array of first ship
+    public Double[] getShipTwoLoc(){return this.shipTwo;} // get array of second ship
+    public Grid getBoard(){return board;} // get player board
+    public boolean checkLoser(){return this.isLoser;}
 }

@@ -48,10 +48,12 @@ public class Grid extends HBox {
         hitView = new ImageView(hit);
         hitView.setX(x);
         hitView.setY(y);
+        System.out.println("HIT");
     }
     public void setMiss(Double x, Double y){
         missView = new ImageView(miss);
         missView.setX(x);
         missView.setY(y);
+        System.out.println("MISS");
     }
 }

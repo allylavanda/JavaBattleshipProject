@@ -1,5 +1,6 @@
 package Stages;
 
+import Handler.Combat;
 import StageObjects.Grid;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
@@ -15,6 +16,7 @@ public class Battle extends Stage{
     private Grid gridOne, gridTwo;
     final double width = 800;
     final double height = 800;
+    private double hitX,hitY;
     public Battle(Player p1, Player p2){
         this.setTitle("Battleship - Battle!");
 
@@ -29,7 +31,6 @@ public class Battle extends Stage{
         Button fire = new Button("FIRE!");
         fire.getStyleClass().add("fire-button");
 
-        p1.beginTurn();
         // Check player turn and generate boards
         generateBoards(p1,p2);
         VBox root = new VBox(30,l1,gridOne,l2,gridTwo,fire);
@@ -63,11 +64,26 @@ public class Battle extends Stage{
             y = Math.floor(y);
             x *= 50;
             y *= 50;
+            hitX = x;
+            hitY = y;
 
 
         });
         fire.setOnAction(event ->{
+            if(p1.getTurn()){
+                Combat cb = new Combat();
+                cb.attack(p2,hitX,hitY);
+                p1.endTurn();
+                p2.beginTurn();
+            }
+            if(p2.getTurn()){
+                Combat cb = new Combat();
+                cb.attack(p1,hitX,hitY);
+                p2.endTurn();
+                p1.beginTurn();
+            }
             this.close();
+            grid.getChildren().remove(select);
         });
 
         Scene sc = new Scene(root,width,height);
