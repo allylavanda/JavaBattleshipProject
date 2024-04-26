@@ -47,7 +47,7 @@ public class SQLHandler {
             Statement state;
             state = conn.createStatement();
             ResultSet resultSet;
-            state.executeUpdate("use battleshipLoginDB");
+            state.executeUpdate("use loginDB");
             resultSet = state.executeQuery("SELECT * FROM USERNAME");
 
             while(resultSet.next()){
