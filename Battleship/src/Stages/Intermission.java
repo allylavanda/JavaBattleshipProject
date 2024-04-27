@@ -1,6 +1,7 @@
 package Stages;
 
 import Handler.CurrentPlayer;
+import Main.Player;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
@@ -13,18 +14,16 @@ import javafx.stage.Stage;
 public class Intermission extends Stage{
     final double width = 800;
     final double height = 800;
-    private Image player;
-    private CurrentPlayer currentPlayer = new CurrentPlayer();
-    public Intermission(int p){
+    private final Image playerOne = new Image("player1.png");
+    private final Image playerTwo = new Image("player2.png");
+    private ImageView pView;
+    public Intermission(Player p1, Player p2){
         this.setTitle("Battle Ship - Intermission");
         Label l1 = new Label("Intermission");
         l1.getStyleClass().add("title");
         // player image
-        currentPlayer.set(p);
-        setPlayerImage(p);
-        ImageView pView = new ImageView(player);
-        pView.setFitWidth(400);
-        pView.setFitHeight(200);
+        setPlayerImage(p1,p2);
+
 
         Label l2 = new Label("Waiting on next player...");
         l2.getStyleClass().add("waiting");
@@ -50,12 +49,16 @@ public class Intermission extends Stage{
         sc.getStylesheets().add("Framework.css");
         this.setScene(sc);
     }
-    private void setPlayerImage(int p){
-        if(currentPlayer.get() == 1){
-            player = new Image("player1.png");
+    private void setPlayerImage(Player p1, Player p2){
+        if(p2.getTurn()) {
+            pView = new ImageView(playerOne);
+            pView.setFitWidth(400);
+            pView.setFitHeight(200);
         }
-        if(currentPlayer.get() == 2) {
-            player = new Image("player2.png");
+        if(p1.getTurn()){
+            pView = new ImageView(playerTwo);
+            pView.setFitWidth(400);
+            pView.setFitHeight(200);
         }
     }
 }

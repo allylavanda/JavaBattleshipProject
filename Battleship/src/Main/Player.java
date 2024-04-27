@@ -9,7 +9,7 @@ public class Player {
     private Image pfp;
     private Double[] shipOne;
     private Double[] shipTwo;
-    private Grid board;
+    private final Grid board;
     public Player(){
         this.board = new Grid();
         board.generate();
