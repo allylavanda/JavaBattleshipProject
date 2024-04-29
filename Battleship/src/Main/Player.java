@@ -8,8 +8,7 @@ public class Player {
     private boolean isLoser;
     private Image pfp;
     private int[][] shipBoard = new int [5][5];
-    private 
-    final Grid board;
+    private final Grid board;
     public Player(){
         this.board = new Grid();
         board.generate();
