@@ -72,12 +72,14 @@ public class Battle extends Stage{
                 cb.attack(p2,hitX,hitY);
                 p1.endTurn();
                 p2.beginTurn();
+                cb.checkLoseStatus(p2);
             }
             if(p2.getTurn()){ // if it is player 2 turn, attack player 1 for x and y
                 Combat cb = new Combat();
                 cb.attack(p1,hitX,hitY);
                 p2.endTurn();
                 p1.beginTurn();
+                cb.checkLoseStatus(p1);
             }
             this.close();
             grid.getChildren().remove(select); // remove select square from grid

@@ -5,7 +5,6 @@ import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
@@ -13,8 +12,6 @@ import javafx.stage.Stage;
 public class Intermission extends Stage{
     final double width = 800;
     final double height = 800;
-    private final Image playerOne = new Image("player1.png");
-    private final Image playerTwo = new Image("player2.png");
     private ImageView pView;
     public Intermission(Player p1, Player p2){
         this.setTitle("Battle Ship - Intermission");

@@ -4,6 +4,7 @@ import javafx.scene.image.Image;
 import javafx.scene.paint.Color;
 public class Player {
     private Color color;
+    private int hits;
     private boolean isTurn;
     private boolean isLoser;
     private Image pfp;
@@ -56,6 +57,7 @@ public class Player {
         }
     }
     public void setLoser(){this.isLoser = true;} // set the loser
+    public void addHit(){this.hits++;}
     public void endTurn(){this.isTurn = false;
     System.out.println(this.isTurn);} // end player turn
     public void beginTurn(){this.isTurn = true;
@@ -63,6 +65,7 @@ public class Player {
     public boolean getTurn(){return this.isTurn;} // get player turn
     public Image getImage(){return pfp;}
     public Color getColor(){return color;}
+    public int getHits(){return this.hits;}
     public int[][] getShipArray(){return this.shipBoard;}
     public Grid getBoard(){return board;} // get player board
     public boolean checkLoser(){return this.isLoser;}
