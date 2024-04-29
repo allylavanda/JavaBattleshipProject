@@ -7,9 +7,9 @@ public class Player {
     private boolean isTurn;
     private boolean isLoser;
     private Image pfp;
-    private Double[] shipOne;
-    private Double[] shipTwo;
-    private final Grid board;
+    private int[][] shipBoard = new int [5][5];
+    private 
+    final Grid board;
     public Player(){
         this.board = new Grid();
         board.generate();
@@ -26,11 +26,27 @@ public class Player {
                 color = Color.YELLOW;
         }
     }
-    public void setShipOneLoc(Double x1, Double y1, Double x2, Double y2){ // add ship one location to array
-        this.shipOne = new Double[] {x1,y1,x2,y2};
+    /**public void setShipOneInt(){ THIS IS AN EXAMPLE
+        shipOneInt = new int[5][5];
+        for(int i = 0; i < 5; i++){
+            for(int j = 0; j < 5; j++){
+                System.out.println(shipOneInt[i][j]);
+            }
+        }
+        shipOneInt[0][0] = 1;
+    } **/
+    public void setShipOneLoc(Double x, Double y){ // add ship one location to array
+        int x1 = (int) Math.round(x);
+        int y1 = (int) Math.round(y);
+        shipBoard[x1][y1] = 1;
+        shipBoard[x1+1][y1] = 1;
     }
-    public void setShipTwoLoc(Double x1, Double y1, Double x2, Double y2){ // add ship two location to array
-        this.shipTwo = new Double[] {x1,y1,x2,y2};
+    public void setShipTwoLoc(Double x, Double y){ // add ship two location to array
+        int x1 = (int) Math.round(x);
+        int y1 = (int) Math.round(y);
+        shipBoard[x1][y1] = 2;
+        shipBoard[x1+1][y1] =2;
+        shipBoard[x1+2][y1] = 2;
     }
     public void setPfpImage(int playerNumber){ // set pfp for player
         if(playerNumber == 1){
@@ -41,13 +57,14 @@ public class Player {
         }
     }
     public void setLoser(){this.isLoser = true;} // set the loser
-    public void endTurn(){this.isTurn = false;} // end player turn
-    public void beginTurn(){this.isTurn = true;} // begin player turn
+    public void endTurn(){this.isTurn = false;
+    System.out.println(this.isTurn);} // end player turn
+    public void beginTurn(){this.isTurn = true;
+    System.out.println(this.isTurn);} // begin player turn   
     public boolean getTurn(){return this.isTurn;} // get player turn
     public Image getImage(){return pfp;}
     public Color getColor(){return color;}
-    public Double[] getShipOneLoc(){return this.shipOne;} // get array of first ship
-    public Double[] getShipTwoLoc(){return this.shipTwo;} // get array of second ship
+    public int[][] getShipArray(){return this.shipBoard;}
     public Grid getBoard(){return board;} // get player board
     public boolean checkLoser(){return this.isLoser;}
 }

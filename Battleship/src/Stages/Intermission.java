@@ -1,6 +1,5 @@
 package Stages;
 
-import Handler.CurrentPlayer;
 import Main.Player;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;

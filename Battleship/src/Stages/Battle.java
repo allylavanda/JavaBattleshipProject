@@ -62,8 +62,7 @@ public class Battle extends Stage{
             y /= 50;
             x = Math.floor(x);
             y = Math.floor(y);
-            x *= 50;
-            y *= 50;
+            
             hitX = x;
             hitY = y;
         });

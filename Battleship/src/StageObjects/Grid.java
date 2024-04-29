@@ -8,8 +8,6 @@ import javafx.scene.shape.Rectangle;
 
 public class Grid extends HBox {
     private Pane grid;
-    private Double[] shipOneHits;
-    private Double[] shipTwoHits;
     private final Image hit = new Image("hit.png");
     private final Image miss = new Image("miss.png");
     private ImageView hitView, missView;
