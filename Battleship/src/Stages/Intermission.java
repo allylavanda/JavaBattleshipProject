@@ -50,12 +50,12 @@ public class Intermission extends Stage{
     }
     private void setPlayerImage(Player p1, Player p2){
         if(p2.getTurn()) {
-            pView = new ImageView(playerOne);
+            pView = new ImageView(p1.getImage());
             pView.setFitWidth(400);
             pView.setFitHeight(200);
         }
         if(p1.getTurn()){
-            pView = new ImageView(playerTwo);
+            pView = new ImageView(p2.getImage());
             pView.setFitWidth(400);
             pView.setFitHeight(200);
         }

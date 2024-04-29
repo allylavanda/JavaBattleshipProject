@@ -18,6 +18,8 @@ public class Main extends Application {
         boolean inCombat = true;
         Player p1 = new Player();
         Player p2 = new Player();
+        p1.setPfpImage(1);
+        p2.setPfpImage(2);
         //LoginMenu lm = new LoginMenu();
         //lm.show();
         //PlayerSelectMenu ps = new PlayerSelectMenu(p1,p2);
