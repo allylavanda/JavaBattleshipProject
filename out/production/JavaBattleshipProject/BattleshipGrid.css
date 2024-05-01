@@ -1,5 +1,6 @@
 .root {
-    -fx-background-color: "#8F8C8C";
+    -fx-background-color: "#6495ED";
+    -fx-text-fill: "white";
 }
 .red-player{
     -fx-background-color: red;
