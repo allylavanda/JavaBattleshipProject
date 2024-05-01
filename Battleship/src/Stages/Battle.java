@@ -1,5 +1,6 @@
 package Stages;
 
+import Handler.BackgroundHandler;
 import Handler.Combat;
 import StageObjects.Grid;
 import javafx.geometry.Pos;
@@ -35,6 +36,13 @@ public class Battle extends Stage{
         generateBoards(p1,p2);
         VBox root = new VBox(30,l1,gridOne,l2,gridTwo,fire);
         root.setAlignment(Pos.CENTER);
+        if(p1.getTurn()){ // set background
+            BackgroundHandler bg = new BackgroundHandler();
+            bg.set(p1,root);
+        } else if(p2.getTurn()){
+            BackgroundHandler bg = new BackgroundHandler();
+            bg.set(p2,root);
+        }
 
         // Event Listener
         Pane grid = gridTwo.getPane();

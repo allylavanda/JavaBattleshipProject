@@ -1,13 +1,13 @@
 package Main;
 import StageObjects.Grid;
 import javafx.scene.image.Image;
-import javafx.scene.paint.Color;
 public class Player {
-    private Color color;
+    private String color;
     private int hits;
     private boolean isTurn;
     private boolean isLoser;
     private Image pfp;
+
     private int[][] shipBoard = new int [5][5];
     private final Grid board;
     public Player(){
@@ -15,18 +15,9 @@ public class Player {
         board.generate();
     }
     public void setColor(String inputColor){ // set player color to use in backgrounds, uses javafx COLOR enums
-        switch (inputColor) {
-            case "red":
-                color = Color.RED;
-            case "blue":
-                color = Color.BLUE;
-            case "green":
-                color = Color.GREEN;
-            case "yellow":
-                color = Color.YELLOW;
-        }
+        this.color = inputColor;
     }
-    /**public void setShipOneInt(){ THIS IS AN EXAMPLE
+    /**public void printShipOneInt(){ THIS IS TO DEBUG IF SHIP VALUES ARE WORKING
         shipOneInt = new int[5][5];
         for(int i = 0; i < 5; i++){
             for(int j = 0; j < 5; j++){
@@ -75,7 +66,7 @@ public class Player {
     public void beginTurn(){this.isTurn = true;} // begin player turn
     public boolean getTurn(){return this.isTurn;} // get player turn
     public Image getImage(){return pfp;}
-    public Color getColor(){return color;}
+    public String getColor(){return color;}
     public int getHits(){return this.hits;}
     public int[][] getShipArray(){return this.shipBoard;}
     public Grid getBoard(){return board;} // get player board

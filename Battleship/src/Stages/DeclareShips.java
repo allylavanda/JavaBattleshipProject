@@ -1,5 +1,6 @@
 package Stages;
 
+import Handler.BackgroundHandler;
 import Main.Player;
 import StageObjects.Grid;
 import javafx.geometry.Pos;
@@ -28,7 +29,7 @@ public class DeclareShips extends Stage{
         Rectangle shipTwo = new Rectangle();
         shipTwo.setX(0);
         shipTwo.setY(0);
-        
+
         // Create Grid
         Grid gridBox = new Grid();
         gridBox.generate();
@@ -57,12 +58,14 @@ public class DeclareShips extends Stage{
         Scene sc = new Scene(root,800, 800);
         sc.getStylesheets().add("BattleshipGrid.css");
 
-        /**switch(p.getColor()){  THIS WILL BE USED TO CHANGE BACKGROUND TO PLAYER CHOSEN COLOR
-            case Color.RED: root.getStyleClass().add("red-player");
-            case Color.GREEN: root.getStyleClass().add("green-player");
-            case Color.YELLOW: root.getStyleClass().add("yellow-player");
-            case Color.BLUE: root.getStyleClass().add("blue-player");
+        /**switch(p.getColor()){
+            case "red": root.getStyleClass().add("red-player");
+            case "green": root.getStyleClass().add("green-player");
+            //case "yellow": root.getStyleClass().add("yellow-player");
+            case "blue": root.getStyleClass().add("blue-player");
         } **/
+        BackgroundHandler bg = new BackgroundHandler();
+        bg.set(p,root);
 
         // Event Handlers
         Pane grid = gridBox.getPane();

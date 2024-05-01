@@ -106,6 +106,27 @@ public class PlayerSelectMenu extends Stage {
                 player2ColorBox.setBackground(new Background(new BackgroundFill(getColor(selectedColor), CornerRadii.EMPTY, Insets.EMPTY)));
             }
         });
+        beginPlacementButton.setOnAction(event -> {
+            if(red1.isSelected()){ // set player one color
+                p1.setColor("red");
+            } else if(blue1.isSelected()){
+                p1.setColor("blue");
+            } else if(green1.isSelected()){
+                p1.setColor("green");
+            } else if(yellow1.isSelected()){
+                p1.setColor("yellow");
+            }
+            if(red2.isSelected()){ // set player 2 color
+                p2.setColor("red");
+            } else if(blue2.isSelected()){
+                p2.setColor("blue");
+            } else if(green2.isSelected()){
+                p2.setColor("green");
+            } else if(yellow2.isSelected()){
+                p2.setColor("yellow");
+            }
+            this.close();
+        });
     }
 
     private void disableColorForPlayer2(String color) {
@@ -118,7 +139,6 @@ public class PlayerSelectMenu extends Stage {
             }
         });
     }
-
     private Color getColor(String colorName) {
         switch (colorName.toLowerCase()) {
             case "red":

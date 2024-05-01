@@ -4,7 +4,7 @@ import Stages.DeclareShips;
 import Stages.GameOver;
 import Stages.Intermission;
 //import Stages.LoginMenu;
-//import Stages.PlayerSelectMenu;
+import Stages.PlayerSelectMenu;
 import javafx.application.Application;
 import javafx.stage.Stage;
 
@@ -24,8 +24,8 @@ public class Main extends Application {
         p2.setPfpImage(2);
         //LoginMenu lm = new LoginMenu();
         //lm.show();
-        //PlayerSelectMenu ps = new PlayerSelectMenu(p1,p2);
-        //ps.show();
+        PlayerSelectMenu ps = new PlayerSelectMenu(p1,p2);
+        ps.showAndWait();
         ds = new DeclareShips(p1);
         ds.showAndWait();
         ds = new DeclareShips(p2);
