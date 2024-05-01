@@ -1,6 +1,7 @@
 package Main;
 import Stages.Battle;
 import Stages.DeclareShips;
+import Stages.GameOver;
 import Stages.Intermission;
 //import Stages.LoginMenu;
 //import Stages.PlayerSelectMenu;
@@ -10,6 +11,7 @@ import javafx.stage.Stage;
 public class Main extends Application {
     public static void main(String[] args) {
         launch(args);
+        System.exit(0);
     }
     public void start(Stage s){
         DeclareShips ds;
@@ -34,6 +36,8 @@ public class Main extends Application {
             bt.showAndWait();
             if(p1.checkLoser() || p2.checkLoser()){
                 inCombat = false;
+                GameOver endGame = new GameOver();
+                endGame.show();
             }
             Intermission inter = new Intermission(p1,p2);
             inter.showAndWait();

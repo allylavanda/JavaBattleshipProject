@@ -71,10 +71,8 @@ public class Player {
     }
     public void setLoser(){this.isLoser = true;} // set the loser
     public void addHit(){this.hits++;}
-    public void endTurn(){this.isTurn = false;
-    System.out.println(this.isTurn);} // end player turn
-    public void beginTurn(){this.isTurn = true;
-    System.out.println(this.isTurn);} // begin player turn   
+    public void endTurn(){this.isTurn = false;} // end player turn
+    public void beginTurn(){this.isTurn = true;} // begin player turn
     public boolean getTurn(){return this.isTurn;} // get player turn
     public Image getImage(){return pfp;}
     public Color getColor(){return color;}
