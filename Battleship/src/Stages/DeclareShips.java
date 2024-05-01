@@ -58,12 +58,7 @@ public class DeclareShips extends Stage{
         Scene sc = new Scene(root,800, 800);
         sc.getStylesheets().add("BattleshipGrid.css");
 
-        /**switch(p.getColor()){
-            case "red": root.getStyleClass().add("red-player");
-            case "green": root.getStyleClass().add("green-player");
-            //case "yellow": root.getStyleClass().add("yellow-player");
-            case "blue": root.getStyleClass().add("blue-player");
-        } **/
+        // set background that player chose
         BackgroundHandler bg = new BackgroundHandler();
         bg.set(p,root);
 
