@@ -13,8 +13,6 @@ public class Combat {
             p.getBoard().setHit(x, y);
             p.addHit();
         }
-
-
         // Check if they hit ship two
         else if(p.getShipArray()[hitX][hitY] == 2){
             p.getBoard().setHit(x, y);
