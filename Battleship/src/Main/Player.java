@@ -35,25 +35,38 @@ public class Player {
         }
         shipOneInt[0][0] = 1;
     } **/
-    public void setShipOneLoc(Double x, Double y){ // add ship one location to array
+    public void setShipOneLoc(Double x, Double y, boolean rb1) { // add ship one location to array
         int x1 = (int) Math.round(x);
         int y1 = (int) Math.round(y);
-        shipBoard[x1][y1] = 1;
-        shipBoard[x1+1][y1] = 1;
+        if (rb1) {
+            shipBoard[x1][y1] = 1;
+            shipBoard[x1][y1 + 1] = 1;
+        } else {
+            shipBoard[x1][y1] = 1;
+            shipBoard[x1 + 1][y1] = 1;
+        }
     }
-    public void setShipTwoLoc(Double x, Double y){ // add ship two location to array
-        int x1 = (int) Math.round(x);
-        int y1 = (int) Math.round(y);
-        shipBoard[x1][y1] = 2;
-        shipBoard[x1+1][y1] =2;
-        shipBoard[x1+2][y1] = 2;
-    }
+        public void setShipTwoLoc(Double x, Double y, boolean rb1) { // add ship two location to array
+
+            int x1 = (int) Math.round(x);
+            int y1 = (int) Math.round(y);
+            if (rb1) {
+                shipBoard[x1][y1] = 2;
+                shipBoard[x1][y1 + 1] = 2;
+                shipBoard[x1][y1 + 2] = 2;
+
+            } else {
+                shipBoard[x1][y1] = 2;
+                shipBoard[x1 + 1][y1] = 2;
+                shipBoard[x1 + 2][y1] = 2;
+            }
+        }
     public void setPfpImage(int playerNumber){ // set pfp for player
         if(playerNumber == 1){
-            pfp = new Image("player1.png");
+            this.pfp = new Image("player1.png");
         }
         if(playerNumber == 2){
-            pfp = new Image("player2.png");
+            this.pfp = new Image("player2.png");
         }
     }
     public void setLoser(){this.isLoser = true;} // set the loser

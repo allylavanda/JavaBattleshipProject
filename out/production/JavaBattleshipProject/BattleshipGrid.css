@@ -13,3 +13,16 @@
 .yellow-player{
     -fx-background-color: yellow;
 }
+.header{
+    -fx-font-size: 14pt;
+    -fx-font-weight: bold;
+}
+.fire-button {
+    -fx-background-color: "red";
+    -fx-text-fill: "white";
+    -fx-font-weight: bold;
+    -fx-font-size: 14pt;
+}
+.fire-button:pressed {
+    -fx-background-color: "DarkRed";
+}

@@ -6,15 +6,17 @@ public class Combat {
     public void attack(Player p, Double x, Double y){
         int hitX = (int) Math.round(x);
         int hitY = (int) Math.round(y);
+        x *= 50;
+        y *= 50;
         // Check if they hit ship one
-        if(p.getShipArray()[hitX][hitY] == 1 || p.getShipArray()[hitX+1][hitY] == 1){
+        if(p.getShipArray()[hitX][hitY] == 1){
             p.getBoard().setHit(x, y);
             p.addHit();
-        } else {
-            p.getBoard().setMiss(x, y);
         }
+
+
         // Check if they hit ship two
-        if(p.getShipArray()[hitX][hitY] == 2 || p.getShipArray()[hitX+1][hitY] == 2 || p.getShipArray()[hitX+2][hitY] == 2){
+        else if(p.getShipArray()[hitX][hitY] == 2){
             p.getBoard().setHit(x, y);
             p.addHit();
         } else {

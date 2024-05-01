@@ -74,7 +74,7 @@ public class Battle extends Stage{
                 p2.beginTurn();
                 cb.checkLoseStatus(p2);
             }
-            if(p2.getTurn()){ // if it is player 2 turn, attack player 1 for x and y
+            else if(p2.getTurn()){ // if it is player 2 turn, attack player 1 for x and y
                 Combat cb = new Combat();
                 cb.attack(p1,hitX,hitY);
                 p2.endTurn();
@@ -96,7 +96,7 @@ public class Battle extends Stage{
         }
         if(p2.getTurn()){ // if it is player two's turn, display their board at the top
             this.gridOne = p2.getBoard();
-            this.gridTwo = p2.getBoard();
+            this.gridTwo = p1.getBoard();
         }
     }
 }
