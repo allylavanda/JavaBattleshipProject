@@ -36,8 +36,9 @@ public class Main extends Application {
             bt.showAndWait();
             if(p1.checkLoser() || p2.checkLoser()){
                 inCombat = false;
-                GameOver endGame = new GameOver();
-                endGame.show();
+                GameOver endGame = new GameOver(p1,p2);
+                endGame.showAndWait();
+                System.exit(0);
             }
             Intermission inter = new Intermission(p1,p2);
             inter.showAndWait();

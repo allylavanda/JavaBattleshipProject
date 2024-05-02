@@ -4,10 +4,12 @@ import javafx.scene.image.Image;
 public class Player {
     private String color;
     private int hits;
+    private String username;
     private boolean isTurn;
     private boolean isLoser;
     private Image pfp;
     private int[][] shipBoard = new int [5][5];
+    private int[][] hitArray = new int[5][5];
     private final Grid board;
     public Player(){
         this.board = new Grid();
@@ -36,21 +38,25 @@ public class Player {
             shipBoard[x1 + 1][y1] = 1;
         }
     }
-        public void setShipTwoLoc(Double x, Double y, boolean rb1) { // add ship two location to array
+    public void setShipTwoLoc(Double x, Double y, boolean rb1) { // add ship two location to array
+        int x1 = (int) Math.round(x);
+        int y1 = (int) Math.round(y);
+        if (rb1) {
+            shipBoard[x1][y1] = 2;
+            shipBoard[x1][y1 + 1] = 2;
+            shipBoard[x1][y1 + 2] = 2;
 
-            int x1 = (int) Math.round(x);
-            int y1 = (int) Math.round(y);
-            if (rb1) {
-                shipBoard[x1][y1] = 2;
-                shipBoard[x1][y1 + 1] = 2;
-                shipBoard[x1][y1 + 2] = 2;
-
-            } else {
-                shipBoard[x1][y1] = 2;
-                shipBoard[x1 + 1][y1] = 2;
-                shipBoard[x1 + 2][y1] = 2;
-            }
+        } else {
+            shipBoard[x1][y1] = 2;
+            shipBoard[x1 + 1][y1] = 2;
+            shipBoard[x1 + 2][y1] = 2;
         }
+    }
+    public void documentHit(Double x, Double y, int shipNum){ // documents player hit, so it can be checked if they attacked said spot already
+        int x1 = (int) Math.round(x);
+        int y1 = (int) Math.round(y);
+        hitArray[x1][y1] = shipNum;
+    }
     public void setPfpImage(int playerNumber){ // set pfp for player
         if(playerNumber == 1){
             this.pfp = new Image("player1.png");
@@ -60,14 +66,17 @@ public class Player {
         }
     }
     public void setLoser(){this.isLoser = true;} // set the loser
+    public void setUsername(String name){this.username = name;}
     public void addHit(){this.hits++;}
     public void endTurn(){this.isTurn = false;} // end player turn
     public void beginTurn(){this.isTurn = true;} // begin player turn
     public boolean getTurn(){return this.isTurn;} // get player turn
     public Image getImage(){return pfp;}
     public String getColor(){return color;}
+    public String getUsername(){return this.username;}
     public int getHits(){return this.hits;}
     public int[][] getShipArray(){return this.shipBoard;}
+    public int[][] getHitArray(){return this.hitArray;}
     public Grid getBoard(){return board;} // get player board
     public boolean checkLoser(){return this.isLoser;}
 }

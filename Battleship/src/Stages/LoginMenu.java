@@ -63,11 +63,6 @@ public class LoginMenu extends Stage{
 
         // Event Handlers
         submit.setOnAction(event -> {
-            SQLHandler accountManager = new SQLHandler();
-            accountManager.login(tf.getText(),pf.getText());
-            if(accountManager.isVerified()){
-                this.close();
-            }
         });
 
         Button leader = new Button("Leaderboards");

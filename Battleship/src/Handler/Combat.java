@@ -10,13 +10,23 @@ public class Combat {
         y *= 50;
         // Check if they hit ship one
         if(p.getShipArray()[hitX][hitY] == 1){
-            p.getBoard().setHit(x, y);
-            p.addHit();
+            if(p.getHitArray()[hitX][hitY] != 1){
+                p.getBoard().setHit(x, y);
+                p.addHit();
+                p.documentHit(x,y,1);
+            } else {
+                System.out.println("THIS PLAYER ALREADY HIT HERE!");
+            }
         }
         // Check if they hit ship two
         else if(p.getShipArray()[hitX][hitY] == 2){
-            p.getBoard().setHit(x, y);
-            p.addHit();
+            if(p.getHitArray()[hitX][hitY] != 2){
+                p.getBoard().setHit(x, y);
+                p.addHit();
+                p.documentHit(x,y,2);
+            } else {
+                System.out.println("THIS PLAYER ALREADY HIT HERE!");
+            }
         } else {
             p.getBoard().setMiss(x, y);
         }
