@@ -16,6 +16,8 @@ import javafx.scene.shape.Rectangle;
 import javafx.stage.Stage;
 
 public class DeclareShips extends Stage{
+    private boolean shipOnePlaced = false;
+    private boolean shipTwoPlaced = false;
     public DeclareShips(Player p){
         this.setTitle("Declare Ship Locations");
 
@@ -135,20 +137,30 @@ public class DeclareShips extends Stage{
             x = Math.floor(x);
             y = Math.floor(y);
 
-            if(rb1.isSelected()){
+            if(rb1.isSelected()){ // place ship one
                 p.setShipOneLoc(x, y, cb1.isSelected());
                 status.setText("Ship One Has Been Placed!");
+                shipOnePlaced = true;
                 // Double[] test = p.getShipOneLoc(); DEBUG IF PLAYER CLASS RECEIVES DATA
                 // System.out.println(test[0]);
             }
-            if(rb2.isSelected()){
+            if(rb2.isSelected()){ // place ship two
                 p.setShipTwoLoc(x, y, cb1.isSelected());
                 status.setText("Ship Two Has Been Placed!");
+                shipTwoPlaced = true;
             }
             System.out.println(x);
         });
         complete.setOnAction(event -> {
-            this.close();
+            if(shipOnePlaced && shipTwoPlaced){ // Make sure the player has placed both ships
+                this.close();
+            } else if(shipOnePlaced && !shipTwoPlaced) {
+                status.setText("YOU MUST PLACE SHIP TWO");
+            } else if(!shipOnePlaced && shipTwoPlaced){
+                status.setText("YOU MUST PLACE SHIP ONE");
+            } else {
+                status.setText("YOU MUST PLACE BOTH SHIPS!");
+            }
         });
         this.setScene(sc);
     }

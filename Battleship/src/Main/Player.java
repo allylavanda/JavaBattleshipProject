@@ -55,6 +55,9 @@ public class Player {
     public void documentHit(int x, int y){ // documents player hit, so it can be checked if they attacked said spot already
         hitArray[x][y] = 1;
     }
+    public void documentMiss(int x, int y){
+        hitArray[x][y] = 2;
+    }
     public void setPfpImage(int playerNumber){ // set pfp for player
         if(playerNumber == 1){
             this.pfp = new Image("player1.png");

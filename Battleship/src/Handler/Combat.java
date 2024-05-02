@@ -33,6 +33,7 @@ public class Combat {
             }
         } else {
             p.getBoard().setMiss(x, y);
+            p.documentMiss(hitX,hitY);
             Encounters encounter = new Encounters();
             encounter.start(p);
         }

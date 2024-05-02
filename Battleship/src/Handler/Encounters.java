@@ -30,7 +30,9 @@ public class Encounters {
             hitX /= 50;
             hitY /= 50;
             if(p.getShipArray()[hitX][hitY] != 1 && p.getShipArray()[hitX][hitY] != 2){
-                p.getBoard().spawnKraken(x,y);
+                if(p.getHitArray()[hitX][hitY] != 1 && p.getHitArray()[hitX][hitY] !=2){ // make sure this spot has not been fired upon
+                    p.getBoard().spawnKraken(x,y);
+                }
             }
         }
     }
