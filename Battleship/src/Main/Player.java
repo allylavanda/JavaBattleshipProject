@@ -4,7 +4,7 @@ import javafx.scene.image.Image;
 public class Player {
     private String color;
     private int hits;
-    private String username;
+    protected String username;
     private boolean isTurn;
     private boolean isLoser;
     private Image pfp;

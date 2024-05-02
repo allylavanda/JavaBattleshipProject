@@ -1,6 +1,5 @@
 package StageObjects;
 import Engagements.Kraken;
-import Handler.Encounters;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;

@@ -76,13 +76,13 @@ public class DeclareShips extends Stage{
             x = Math.floor(x);
             y = Math.floor(y);
             // FOR DEBUGGING PURPOSES
-            System.out.print("Array Index: ");
+            /**System.out.print("Array Index: ");
             System.out.print("[");
             System.out.print(x);
             System.out.print("]");
             System.out.print("[");
             System.out.print(y);
-            System.out.println("]");
+            System.out.println("]"); **/
             x *= 50;
             y *= 50;
 

@@ -9,7 +9,7 @@ public class Encounters {
     public void start(Player p){
         Random rng = new Random();
         rand = rng.nextInt(5);
-        switch(rand){ // Place randomly horizontally
+        switch(rand){ // Place random encounter horizontally
             case 0: x = 0.0; break;
             case 1: x = 50.0; break;
             case 2: x = 100.0; break;
@@ -17,7 +17,7 @@ public class Encounters {
             case 4: x = 200.0; break;
         }
         rand = rng.nextInt(5);
-        switch(rand){ // Place random vertically
+        switch(rand){ // Place random encounter vertically
             case 0: y = 0.0; break;
             case 1: y = 50.0; break;
             case 2: y = 100.0; break;
