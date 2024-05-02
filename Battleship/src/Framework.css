@@ -23,6 +23,10 @@
     -fx-font-size: 50pt;
     -fx-font-weight: bold;
 }
+.subtitle {
+    -fx-font-size: 25pt;
+    -fx-font-weight: bold;
+}
 .waiting {
     -fx-font-size: 35pt;
     -fx-font-weight: bold;

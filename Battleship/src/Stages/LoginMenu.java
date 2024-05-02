@@ -1,23 +1,19 @@
 package Stages;
 
+import Main.Player;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.RadioButton;
-import javafx.scene.control.TextField;
-import javafx.scene.control.ToggleGroup;
+import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 
 public class LoginMenu extends Stage{
-    public LoginMenu(){
+    public LoginMenu(Player p1, Player p2){
         this.setTitle("Battleship Game"); // set title
         // Create Logo Image
         Image logo = new Image("logo.png");
@@ -25,18 +21,9 @@ public class LoginMenu extends Stage{
         logoView.setFitWidth(400);
         logoView.setFitHeight(200);
 
-        // create pve and pvp options
-        RadioButton pve = new RadioButton("PvE");
-        RadioButton pvp = new RadioButton("PvP");
-        ToggleGroup tg = new ToggleGroup();
-        pve.setToggleGroup(tg);
-        pvp.setToggleGroup(tg);
-        HBox mode = new HBox(pve,pvp);
-        mode.setAlignment(Pos.CENTER);
-        pvp.setPadding(new Insets(5));
-        pve.setPadding(new Insets(5));
-
-        // create username and password fields
+        // create username and password fields for player 1
+        Label l1 = new Label("Player 1 Login");
+        l1.getStyleClass().add("subtitle");
         Text text1 = new Text("Username:");
         text1.getStyleClass().add("login");
         TextField tf = new TextField();
@@ -45,6 +32,19 @@ public class LoginMenu extends Stage{
         text2.getStyleClass().add("login");
         PasswordField pf = new PasswordField();
         pf.setMaxSize(200,0);
+
+        // create username and password fields for player 2
+        Label l2 = new Label("Player 2 Login");
+        l2.getStyleClass().add("subtitle");
+        Text text3 = new Text("Username:");
+        text3.getStyleClass().add("login");
+        TextField tf2 = new TextField();
+        tf2.setMaxSize(200, 0);
+        Text text4 = new Text("Password:");
+        text4.getStyleClass().add("login");
+        PasswordField pf2 = new PasswordField();
+        pf2.setMaxSize(200,0);
+
 
         // create submit and forgot buttons
         Button submit = new Button("Submit");
@@ -63,12 +63,15 @@ public class LoginMenu extends Stage{
 
         // Event Handlers
         submit.setOnAction(event -> {
+            p1.setUsername(tf.getText());
+            p2.setUsername(tf.getText());
+            this.close();
         });
 
         Button leader = new Button("Leaderboards");
         
         // add to vbox to align vertically
-        VBox vb = new VBox(logoView,mode,text1,tf,text2,pf,buttonGrid, leader);
+        VBox vb = new VBox(logoView,l1,text1,tf,text2,pf,l2,text3,tf2,text4,pf2,buttonGrid, leader);
         vb.setAlignment(Pos.TOP_CENTER);
         vb.setPadding(new Insets(100));
 

@@ -52,10 +52,8 @@ public class Player {
             shipBoard[x1 + 2][y1] = 2;
         }
     }
-    public void documentHit(Double x, Double y, int shipNum){ // documents player hit, so it can be checked if they attacked said spot already
-        int x1 = (int) Math.round(x);
-        int y1 = (int) Math.round(y);
-        hitArray[x1][y1] = shipNum;
+    public void documentHit(int x, int y){ // documents player hit, so it can be checked if they attacked said spot already
+        hitArray[x][y] = 1;
     }
     public void setPfpImage(int playerNumber){ // set pfp for player
         if(playerNumber == 1){

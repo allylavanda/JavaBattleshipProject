@@ -13,17 +13,17 @@ public class Combat {
             if(p.getHitArray()[hitX][hitY] != 1){
                 p.getBoard().setHit(x, y);
                 p.addHit();
-                p.documentHit(x,y,1);
+                p.documentHit(hitX,hitY);
             } else {
                 System.out.println("THIS PLAYER ALREADY HIT HERE!");
             }
         }
         // Check if they hit ship two
         else if(p.getShipArray()[hitX][hitY] == 2){
-            if(p.getHitArray()[hitX][hitY] != 2){
+            if(p.getHitArray()[hitX][hitY] != 1){
                 p.getBoard().setHit(x, y);
                 p.addHit();
-                p.documentHit(x,y,2);
+                p.documentHit(hitX,hitY);
             } else {
                 System.out.println("THIS PLAYER ALREADY HIT HERE!");
             }
