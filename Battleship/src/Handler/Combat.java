@@ -10,8 +10,10 @@ public class Combat {
         y *= 50;
         // Check if they hit ship one
         if(p.getShipArray()[hitX][hitY] == 1){
-            if(p.getHitArray()[hitX][hitY] != 1){
+            if(p.getHitArray()[hitX][hitY] != 1){ // check if they have hit this location before
                 p.getBoard().setHit(x, y);
+                Encounters encounter = new Encounters();
+                encounter.start(p);
                 p.addHit();
                 p.documentHit(hitX,hitY);
             } else {
@@ -20,8 +22,10 @@ public class Combat {
         }
         // Check if they hit ship two
         else if(p.getShipArray()[hitX][hitY] == 2){
-            if(p.getHitArray()[hitX][hitY] != 1){
+            if(p.getHitArray()[hitX][hitY] != 1){ // check if they have hit this location before
                 p.getBoard().setHit(x, y);
+                Encounters encounter = new Encounters();
+                encounter.start(p);
                 p.addHit();
                 p.documentHit(hitX,hitY);
             } else {
@@ -29,6 +33,8 @@ public class Combat {
             }
         } else {
             p.getBoard().setMiss(x, y);
+            Encounters encounter = new Encounters();
+            encounter.start(p);
         }
     }
     public void checkLoseStatus(Player p){

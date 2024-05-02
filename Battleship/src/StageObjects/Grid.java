@@ -1,4 +1,6 @@
 package StageObjects;
+import Engagements.Kraken;
+import Handler.Encounters;
 import javafx.geometry.Pos;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
@@ -55,5 +57,13 @@ public class Grid extends HBox {
         missView.setY(y);
         grid.getChildren().add(missView);
         System.out.println("MISS");
+    }
+    public void spawnKraken(Double x, Double y){
+        Kraken kraken = new Kraken();
+        ImageView krakenView = new ImageView(kraken.getKrakenImg());
+        krakenView.setX(x);
+        krakenView.setY(y);
+        grid.getChildren().add(krakenView);
+        System.out.println("A KRAKEN HAS APPEARED");
     }
 }
