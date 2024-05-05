@@ -19,8 +19,7 @@ public class Intermission extends Stage{
         l1.getStyleClass().add("title");
         // player image
         setPlayerImage(p1,p2);
-
-
+        
         Label l2 = new Label("Waiting on next player...");
         l2.getStyleClass().add("waiting");
         Button b1 = new Button("START TURN");
@@ -35,6 +34,15 @@ public class Intermission extends Stage{
         // event listeners
         b1.setOnAction(event -> {
             this.close();
+        });
+        b2.setOnAction(event -> {
+            if(p2.getTurn()){
+                p1.setLoser();
+                this.close();
+            } else if(p1.getTurn()){
+                p2.setLoser();
+                this.close();
+            }
         });
 
         // root box
