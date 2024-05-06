@@ -12,7 +12,7 @@ public class LeaderboardDB {
     }
     private void connectToLeaderboardDB() { // connect to leaderboards
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root","root", "n8m$ihpG6d!RFJggM9*");
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root","root", "1234");
 
             state = conn.createStatement();
             state.executeUpdate("use bship");
@@ -59,8 +59,10 @@ public class LeaderboardDB {
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM leaderboard WHERE username =?");
         stmt.setString(1,username);
         results = stmt.executeQuery();
-        results.next();
-        int result = results.getInt(2);
+        int result = 0;
+        if(results.next()){
+            result = results.getInt("wins");
+        }
         stmt.close();
         return result;
     }
@@ -70,12 +72,13 @@ public class LeaderboardDB {
         results = stmt.executeQuery();
         int result = 0;
         while(results.next()){
-            result = results.getInt(3);
+            result = results.getInt("losses");
         }
         stmt.close();
         return result;
     }
     public void close() throws SQLException { // close all objects use for db
+        assert results != null;
         results.close();
         conn.close();
     }

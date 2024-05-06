@@ -11,7 +11,7 @@ public class LoginDB {
     }
     private void connectToLoginDB(){ // connect to login database
         try {
-            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root","root", "n8m$ihpG6d!RFJggM9*");
+            conn = DriverManager.getConnection("jdbc:mysql://127.0.0.1:3306/?user=root","root", "1234");
 
             state = conn.createStatement();
             state.executeUpdate("use login");
@@ -55,7 +55,7 @@ public class LoginDB {
         return dbPass.equals(password);
     }
     public void close() throws SQLException { // close all objects use for db
-        results.close();
+        //results.close();
         conn.close();
     }
 }

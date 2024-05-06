@@ -26,14 +26,14 @@ public class GameOver extends Stage {
         LeaderboardDB db = new LeaderboardDB();
         if(p1.checkLoser()){
             l2.setText(p2.getUsername()+" wins!");
-            l3.setText(p2.getUsername()+" has "+db.getWins(p2.getUsername()+" total wins!"));
+            l3.setText(p2.getUsername()+" has "+db.getWins(p2.getUsername())+" total wins!");
             l4.setText(p2.getUsername()+" has "+db.getLosses(p2.getUsername())+" total losses!");
         } else if(p2.checkLoser()){
             l2.setText(p1.getUsername()+" wins!");
             l3.setText(p1.getUsername()+" has "+db.getWins(p1.getUsername())+" total wins!");
             l4.setText(p1.getUsername()+" has "+db.getLosses(p1.getUsername())+" total losses!");
         }
-
+        db.close();
         VBox root = new VBox(l1,l2,l3,l4);
         root.setAlignment(Pos.CENTER);
         Scene sc = new Scene(root, width, height);

@@ -1,0 +1,36 @@
+.root {
+    -fx-background-color: "#6495ED";
+}
+.forfeit-button {
+    -fx-background-color: "red";
+    -fx-text-fill: "white";
+    -fx-font-weight: bold;
+    -fx-font-size: 20pt;
+}
+.forfeit-button:pressed {
+    -fx-background-color: "DarkRed";
+}
+.start-turn-button {
+    -fx-background-color: "green";
+    -fx-text-fill: "white";
+    -fx-font-weight: bold;
+    -fx-font-size: 20pt;
+}
+.start-turn-button:pressed {
+    -fx-background-color: "DarkGreen";
+}
+.title {
+    -fx-font-size: 50pt;
+    -fx-font-weight: bold;
+}
+.subtitle {
+    -fx-font-size: 25pt;
+    -fx-font-weight: bold;
+}
+.waiting {
+    -fx-font-size: 35pt;
+    -fx-font-weight: bold;
+}
+.login {
+    -fx-font-size: 20pt;
+}
