@@ -1,5 +1,6 @@
 package Stages;
 
+import Handler.LoginDB;
 import Main.Player;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -11,6 +12,8 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
+
+import java.sql.SQLException;
 
 public class LoginMenu extends Stage{
     public LoginMenu(Player p1, Player p2){
@@ -48,14 +51,14 @@ public class LoginMenu extends Stage{
 
         // create submit and forgot buttons
         Button submit = new Button("Submit");
-        Button forgot = new Button("Forgot?");
+        Button newUser = new Button("New User?");
         submit.setPadding(new Insets(5));
-        forgot.setPadding(new Insets(5));
+        newUser.setPadding(new Insets(5));
         GridPane buttonGrid = new GridPane();
 
         // Add submit and forgot to grid, and set spacing between both. Align to center
         buttonGrid.add(submit, 0, 0);
-        buttonGrid.add(forgot, 1, 0);
+        buttonGrid.add(newUser, 1, 0);
         buttonGrid.setPadding(new Insets(10));
         buttonGrid.setVgap(5);
         buttonGrid.setHgap(5);
@@ -64,8 +67,27 @@ public class LoginMenu extends Stage{
         // Event Handlers
         submit.setOnAction(event -> {
             p1.setUsername(tf.getText());
-            p2.setUsername(tf.getText());
-            this.close();
+            p2.setUsername(tf2.getText());
+            LoginDB db = new LoginDB();
+            try {
+                if(db.login(tf.getText(),pf.getText())&& db.login(tf2.getText(),pf2.getText())){
+                    this.close();
+                    System.out.println("LOGINS SUCCEEDED");
+                } else {
+                    System.out.println("LOGINS FAILED");
+                }
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+            try {
+                db.close();
+            } catch (SQLException e) {
+                throw new RuntimeException(e);
+            }
+        });
+        newUser.setOnAction(event -> {
+            NewUser nu = new NewUser();
+            nu.showAndWait();
         });
 
         Button leader = new Button("Leaderboards");

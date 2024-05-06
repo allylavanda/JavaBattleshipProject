@@ -1,4 +1,5 @@
 package Main;
+import Handler.LeaderboardDB;
 import StageObjects.Grid;
 import javafx.scene.image.Image;
 public class Player {
@@ -66,7 +67,10 @@ public class Player {
             this.pfp = new Image("player2.png");
         }
     }
-    public void setLoser(){this.isLoser = true;} // set the loser
+    public void setLoser(){
+        this.isLoser = true;
+        LeaderboardDB db = new LeaderboardDB();
+    } // set the loser
     public void setUsername(String name){this.username = name;}
     public void addHit(){this.hits++;}
     public void endTurn(){this.isTurn = false;} // end player turn

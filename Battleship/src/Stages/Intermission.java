@@ -19,7 +19,7 @@ public class Intermission extends Stage{
         l1.getStyleClass().add("title");
         // player image
         setPlayerImage(p1,p2);
-        
+
         Label l2 = new Label("Waiting on next player...");
         l2.getStyleClass().add("waiting");
         Button b1 = new Button("START TURN");
