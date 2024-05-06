@@ -78,8 +78,8 @@ public class LeaderboardDB {
         return result;
     }
     public void close() throws SQLException { // close all objects use for db
-        assert results != null;
-        results.close();
+        //assert results != null;
+        //results.close();
         conn.close();
     }
 }
