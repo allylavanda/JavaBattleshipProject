@@ -41,18 +41,33 @@ public class LoginDB {
         db.close();
         stmt.close();
     }
-    public boolean login(String username, String password) throws SQLException {
-        String dbPass = null;
-        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
+    private boolean userExists(String username) throws SQLException {
+        PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users where username =?");
         stmt.setString(1,username);
         results = stmt.executeQuery();
-        while(results.next()){
-            dbPass = results.getString("password");
+        boolean val = false;
+        while (results.next()) {
+            val = results.getString("username").equalsIgnoreCase(username);
         }
-        stmt.close();
-        // check if passed
-        assert dbPass != null;
-        return dbPass.equals(password);
+        return val;
+    }
+    public boolean login(String username, String password) throws SQLException {
+        if(userExists(username)){
+            String dbPass = null;
+            PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users WHERE username = ?");
+            stmt.setString(1,username);
+            results = stmt.executeQuery();
+            while(results.next()){
+                dbPass = results.getString("password");
+            }
+            stmt.close();
+            // check if passed
+            assert dbPass != null;
+            return dbPass.equals(password);
+        } else {
+            System.out.println("USER DOES NOT EXIST, PLEASE CREATE NEW USER");
+            return false;
+        }
     }
     public void close() throws SQLException { // close all objects use for db
         //results.close();
