@@ -41,7 +41,7 @@ public class LoginDB {
         db.close();
         stmt.close();
     }
-    private boolean userExists(String username) throws SQLException {
+    private boolean userExists(String username) throws SQLException { // check if user account already exists
         PreparedStatement stmt = conn.prepareStatement("SELECT * FROM users where username =?");
         stmt.setString(1,username);
         results = stmt.executeQuery();

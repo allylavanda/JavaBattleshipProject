@@ -90,10 +90,10 @@ public class LoginMenu extends Stage{
             nu.showAndWait();
         });
 
-        Button leader = new Button("Leaderboards");
+        //Button leader = new Button("Leaderboards");
         
         // add to vbox to align vertically
-        VBox vb = new VBox(logoView,l1,text1,tf,text2,pf,l2,text3,tf2,text4,pf2,buttonGrid, leader);
+        VBox vb = new VBox(logoView,l1,text1,tf,text2,pf,l2,text3,tf2,text4,pf2,buttonGrid);
         vb.setAlignment(Pos.TOP_CENTER);
         vb.setPadding(new Insets(100));
 
